@@ -1,0 +1,703 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.cep.componente.correios.com.br/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="cep" targetNamespace="http://service.cep.componente.correios.com.br/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://service.cep.componente.correios.com.br/" elementFormDefault="unqualified" targetNamespace="http://service.cep.componente.correios.com.br/" version="1.0">
+
+  <xs:element name="CEP" type="tns:cep"/>
+
+  <xs:element name="CEPS" type="tns:ceps"/>
+
+  <xs:element name="FAIXA" type="tns:cepFaixa"/>
+
+  <xs:element name="FAIXAS_CEP" type="tns:faixa"/>
+
+  <xs:element name="WebServiceFaultInfo" type="tns:WebServiceFaultInfo"/>
+
+  <xs:element name="consultaCepsPorEndereco" type="tns:consultaCepsPorEndereco"/>
+
+  <xs:element name="consultaCepsPorEnderecoResponse" type="tns:consultaCepsPorEnderecoResponse"/>
+
+  <xs:element name="faixaCep" type="tns:FaixaCep"/>
+
+  <xs:element name="faixaCepMunicipio" type="tns:FaixaCepMunicipio"/>
+
+  <xs:element name="faixaCepUf" type="tns:FaixaCepUf"/>
+
+  <xs:element name="getDadosCep" type="tns:getDadosCep"/>
+
+  <xs:element name="getDadosCepComMunicipio" type="tns:getDadosCepComMunicipio"/>
+
+  <xs:element name="getDadosCepComMunicipioResponse" type="tns:getDadosCepComMunicipioResponse"/>
+
+  <xs:element name="getDadosCepResponse" type="tns:getDadosCepResponse"/>
+
+  <xs:element name="getFaixaCepUop" type="tns:getFaixaCepUop"/>
+
+  <xs:element name="getFaixaCepUopResponse" type="tns:getFaixaCepUopResponse"/>
+
+  <xs:element name="getListaCep" type="tns:getListaCep"/>
+
+  <xs:element name="getListaCepResponse" type="tns:getListaCepResponse"/>
+
+  <xs:element name="getVersao" type="tns:getVersao"/>
+
+  <xs:element name="getVersaoResponse" type="tns:getVersaoResponse"/>
+
+  <xs:element name="listarFaixaCEP" type="tns:listarFaixaCEP"/>
+
+  <xs:element name="listarFaixaCEPMunicipioAgendadasParaProximoMes" type="tns:listarFaixaCEPMunicipioAgendadasParaProximoMes"/>
+
+  <xs:element name="listarFaixaCEPMunicipioAgendadasParaProximoMesResponse" type="tns:listarFaixaCEPMunicipioAgendadasParaProximoMesResponse"/>
+
+  <xs:element name="listarFaixaCEPPorUFMunicipioEBairro" type="tns:listarFaixaCEPPorUFMunicipioEBairro"/>
+
+  <xs:element name="listarFaixaCEPPorUFMunicipioEBairroResponse" type="tns:listarFaixaCEPPorUFMunicipioEBairroResponse"/>
+
+  <xs:element name="listarFaixaCEPResponse" type="tns:listarFaixaCEPResponse"/>
+
+  <xs:element name="listarFaixaPorCEPs" type="tns:listarFaixaPorCEPs"/>
+
+  <xs:element name="listarFaixaPorCEPsResponse" type="tns:listarFaixaPorCEPsResponse"/>
+
+  <xs:element name="listarPreposicoes" type="tns:listarPreposicoes"/>
+
+  <xs:element name="listarPreposicoesResponse" type="tns:listarPreposicoesResponse"/>
+
+  <xs:element name="listarTipodeLogradouro" type="tns:listarTipodeLogradouro"/>
+
+  <xs:element name="listarTipodeLogradouroResponse" type="tns:listarTipodeLogradouroResponse"/>
+
+  <xs:element name="listarTitulodeLogradouro" type="tns:listarTitulodeLogradouro"/>
+
+  <xs:element name="listarTitulodeLogradouroResponse" type="tns:listarTitulodeLogradouroResponse"/>
+
+  <xs:complexType name="listarTitulodeLogradouro">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="listarTitulodeLogradouroResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="titulo" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WebServiceFaultInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="mensagem" type="xs:string"/>
+      <xs:element minOccurs="0" name="excecao" type="xs:string"/>
+      <xs:element minOccurs="0" name="classificacao" type="xs:string"/>
+      <xs:element minOccurs="0" name="causa" type="xs:string"/>
+      <xs:element minOccurs="0" name="stackTrace" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listarFaixaCEP">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="uf" type="xs:string"/>
+      <xs:element minOccurs="0" name="municipio" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listarFaixaCEPResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:faixaCep"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FaixaCep">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:faixaCepUf"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:faixaCepMunicipio"/>
+    </xs:sequence>
+    <xs:attribute name="uf" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="FaixaCepUf">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="inicio" type="xs:string"/>
+      <xs:element minOccurs="0" name="fim" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FaixaCepMunicipio">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nome" type="xs:string"/>
+      <xs:element minOccurs="0" name="inicio" type="xs:string"/>
+      <xs:element minOccurs="0" name="fim" type="xs:string"/>
+      <xs:element minOccurs="0" name="bairro" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="uf" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="listarPreposicoes">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="listarPreposicoesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="preposicao" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getVersao">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getVersaoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="versao" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listarFaixaCEPPorUFMunicipioEBairro">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="uf" type="xs:string"/>
+      <xs:element minOccurs="0" name="municipio" type="xs:string"/>
+      <xs:element minOccurs="0" name="bairro" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listarFaixaCEPPorUFMunicipioEBairroResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:faixaCep"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getDadosCepComMunicipio">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cep" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getDadosCepComMunicipioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CEPS" type="tns:cepComMunicpio"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="cepComMunicpio">
+    <xs:complexContent>
+      <xs:extension base="tns:cep">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="VLOCSUB" type="xs:string"/>
+          <xs:element minOccurs="0" name="VLOC_NU_SUB" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cep">
+    <xs:complexContent>
+      <xs:extension base="tns:TO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="VUF" type="xs:string"/>
+          <xs:element minOccurs="0" name="VLOC_NO" type="xs:string"/>
+          <xs:element minOccurs="0" name="VLOG_NO_DNEC" type="xs:string"/>
+          <xs:element minOccurs="0" name="VTLO_TX" type="xs:string"/>
+          <xs:element minOccurs="0" name="VNUM_UNIDADE_TX" type="xs:string"/>
+          <xs:element minOccurs="0" name="VBAIRRO" type="xs:string"/>
+          <xs:element minOccurs="0" name="VCEP" type="xs:string"/>
+          <xs:element minOccurs="0" name="VCEPTIPO" type="xs:string"/>
+          <xs:element minOccurs="0" name="VLOC_NU" type="xs:string"/>
+          <xs:element minOccurs="0" name="VCEPANT" type="xs:string"/>
+          <xs:element minOccurs="0" name="VDIST_POSTAL" type="xs:string"/>
+          <xs:element minOccurs="0" name="VCEPUOP" type="xs:string"/>
+          <xs:element minOccurs="0" name="VLOG_ABREV" type="xs:string"/>
+          <xs:element minOccurs="0" name="VCEP_VALIDO" type="xs:string"/>
+          <xs:element minOccurs="0" name="VENDERECO_VALIDO" type="xs:string"/>
+          <xs:element minOccurs="0" name="COD_MENSAGEM" type="xs:string"/>
+          <xs:element minOccurs="0" name="DESC_MENSAGEM" type="xs:string"/>
+          <xs:element minOccurs="0" ref="tns:FAIXAS_CEP"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType abstract="true" name="TO">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="faixa">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:FAIXA"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="cepFaixa">
+    <xs:complexContent>
+      <xs:extension base="tns:TO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CEP_INICIAL" type="xs:string"/>
+          <xs:element minOccurs="0" name="CEP_FINAL" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="consultaCepsPorEndereco">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="endereco" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="consultaCepsPorEnderecoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:CEPS"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ceps">
+    <xs:complexContent>
+      <xs:extension base="tns:TO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:CEP"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="listarFaixaPorCEPs">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="listaDeCeps" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listarFaixaPorCEPsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:faixaCep"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listarTipodeLogradouro">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="listarTipodeLogradouroResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="tipo" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getDadosCep">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cep" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getDadosCepResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CEPS" type="tns:cep"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getFaixaCepUop">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cep" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getFaixaCepUopResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:CEP"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getListaCep">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="listaDeCeps" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getListaCepResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:CEPS"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listarFaixaCEPMunicipioAgendadasParaProximoMes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="uf" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listarFaixaCEPMunicipioAgendadasParaProximoMesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:faixaCep"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getFaixaCepUopResponse">
+    <wsdl:part element="tns:getFaixaCepUopResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarTitulodeLogradouro">
+    <wsdl:part element="tns:listarTitulodeLogradouro" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarFaixaCEPMunicipioAgendadasParaProximoMesResponse">
+    <wsdl:part element="tns:listarFaixaCEPMunicipioAgendadasParaProximoMesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarFaixaCEPResponse">
+    <wsdl:part element="tns:listarFaixaCEPResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getListaCepResponse">
+    <wsdl:part element="tns:getListaCepResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersao">
+    <wsdl:part element="tns:getVersao" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDadosCepComMunicipioResponse">
+    <wsdl:part element="tns:getDadosCepComMunicipioResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaCepsPorEndereco">
+    <wsdl:part element="tns:consultaCepsPorEndereco" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaCepsPorEnderecoResponse">
+    <wsdl:part element="tns:consultaCepsPorEnderecoResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarPreposicoesResponse">
+    <wsdl:part element="tns:listarPreposicoesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarTitulodeLogradouroResponse">
+    <wsdl:part element="tns:listarTitulodeLogradouroResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFaixaCepUop">
+    <wsdl:part element="tns:getFaixaCepUop" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDadosCepResponse">
+    <wsdl:part element="tns:getDadosCepResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarFaixaPorCEPsResponse">
+    <wsdl:part element="tns:listarFaixaPorCEPsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarFaixaCEP">
+    <wsdl:part element="tns:listarFaixaCEP" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarFaixaCEPPorUFMunicipioEBairroResponse">
+    <wsdl:part element="tns:listarFaixaCEPPorUFMunicipioEBairroResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarPreposicoes">
+    <wsdl:part element="tns:listarPreposicoes" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarFaixaCEPPorUFMunicipioEBairro">
+    <wsdl:part element="tns:listarFaixaCEPPorUFMunicipioEBairro" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDadosCepComMunicipio">
+    <wsdl:part element="tns:getDadosCepComMunicipio" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarFaixaPorCEPs">
+    <wsdl:part element="tns:listarFaixaPorCEPs" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarTipodeLogradouro">
+    <wsdl:part element="tns:listarTipodeLogradouro" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersaoResponse">
+    <wsdl:part element="tns:getVersaoResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDadosCep">
+    <wsdl:part element="tns:getDadosCep" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getListaCep">
+    <wsdl:part element="tns:getListaCep" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ComponenteException">
+    <wsdl:part element="tns:WebServiceFaultInfo" name="ComponenteException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarFaixaCEPMunicipioAgendadasParaProximoMes">
+    <wsdl:part element="tns:listarFaixaCEPMunicipioAgendadasParaProximoMes" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarTipodeLogradouroResponse">
+    <wsdl:part element="tns:listarTipodeLogradouroResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="cepService">
+    <wsdl:operation name="listarTitulodeLogradouro">
+      <wsdl:input message="tns:listarTitulodeLogradouro" name="listarTitulodeLogradouro">
+    </wsdl:input>
+      <wsdl:output message="tns:listarTitulodeLogradouroResponse" name="listarTitulodeLogradouroResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ComponenteException" name="ComponenteException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarFaixaCEP">
+      <wsdl:input message="tns:listarFaixaCEP" name="listarFaixaCEP">
+    </wsdl:input>
+      <wsdl:output message="tns:listarFaixaCEPResponse" name="listarFaixaCEPResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ComponenteException" name="ComponenteException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarPreposicoes">
+      <wsdl:input message="tns:listarPreposicoes" name="listarPreposicoes">
+    </wsdl:input>
+      <wsdl:output message="tns:listarPreposicoesResponse" name="listarPreposicoesResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ComponenteException" name="ComponenteException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getVersao">
+      <wsdl:input message="tns:getVersao" name="getVersao">
+    </wsdl:input>
+      <wsdl:output message="tns:getVersaoResponse" name="getVersaoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarFaixaCEPPorUFMunicipioEBairro">
+      <wsdl:input message="tns:listarFaixaCEPPorUFMunicipioEBairro" name="listarFaixaCEPPorUFMunicipioEBairro">
+    </wsdl:input>
+      <wsdl:output message="tns:listarFaixaCEPPorUFMunicipioEBairroResponse" name="listarFaixaCEPPorUFMunicipioEBairroResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ComponenteException" name="ComponenteException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDadosCepComMunicipio">
+      <wsdl:input message="tns:getDadosCepComMunicipio" name="getDadosCepComMunicipio">
+    </wsdl:input>
+      <wsdl:output message="tns:getDadosCepComMunicipioResponse" name="getDadosCepComMunicipioResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ComponenteException" name="ComponenteException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaCepsPorEndereco">
+      <wsdl:input message="tns:consultaCepsPorEndereco" name="consultaCepsPorEndereco">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaCepsPorEnderecoResponse" name="consultaCepsPorEnderecoResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ComponenteException" name="ComponenteException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarFaixaPorCEPs">
+      <wsdl:input message="tns:listarFaixaPorCEPs" name="listarFaixaPorCEPs">
+    </wsdl:input>
+      <wsdl:output message="tns:listarFaixaPorCEPsResponse" name="listarFaixaPorCEPsResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ComponenteException" name="ComponenteException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarTipodeLogradouro">
+      <wsdl:input message="tns:listarTipodeLogradouro" name="listarTipodeLogradouro">
+    </wsdl:input>
+      <wsdl:output message="tns:listarTipodeLogradouroResponse" name="listarTipodeLogradouroResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ComponenteException" name="ComponenteException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDadosCep">
+      <wsdl:input message="tns:getDadosCep" name="getDadosCep">
+    </wsdl:input>
+      <wsdl:output message="tns:getDadosCepResponse" name="getDadosCepResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ComponenteException" name="ComponenteException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFaixaCepUop">
+      <wsdl:input message="tns:getFaixaCepUop" name="getFaixaCepUop">
+    </wsdl:input>
+      <wsdl:output message="tns:getFaixaCepUopResponse" name="getFaixaCepUopResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ComponenteException" name="ComponenteException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getListaCep">
+      <wsdl:input message="tns:getListaCep" name="getListaCep">
+    </wsdl:input>
+      <wsdl:output message="tns:getListaCepResponse" name="getListaCepResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ComponenteException" name="ComponenteException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarFaixaCEPMunicipioAgendadasParaProximoMes">
+      <wsdl:input message="tns:listarFaixaCEPMunicipioAgendadasParaProximoMes" name="listarFaixaCEPMunicipioAgendadasParaProximoMes">
+    </wsdl:input>
+      <wsdl:output message="tns:listarFaixaCEPMunicipioAgendadasParaProximoMesResponse" name="listarFaixaCEPMunicipioAgendadasParaProximoMesResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ComponenteException" name="ComponenteException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="cepSoapBinding" type="tns:cepService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="listarTitulodeLogradouro">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listarTitulodeLogradouro">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarTitulodeLogradouroResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ComponenteException">
+        <soap:fault name="ComponenteException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarFaixaCEP">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listarFaixaCEP">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarFaixaCEPResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ComponenteException">
+        <soap:fault name="ComponenteException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarPreposicoes">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listarPreposicoes">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarPreposicoesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ComponenteException">
+        <soap:fault name="ComponenteException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getVersao">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getVersao">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getVersaoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarFaixaCEPPorUFMunicipioEBairro">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listarFaixaCEPPorUFMunicipioEBairro">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarFaixaCEPPorUFMunicipioEBairroResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ComponenteException">
+        <soap:fault name="ComponenteException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDadosCepComMunicipio">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDadosCepComMunicipio">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDadosCepComMunicipioResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ComponenteException">
+        <soap:fault name="ComponenteException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaCepsPorEndereco">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaCepsPorEndereco">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaCepsPorEnderecoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ComponenteException">
+        <soap:fault name="ComponenteException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarFaixaPorCEPs">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listarFaixaPorCEPs">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarFaixaPorCEPsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ComponenteException">
+        <soap:fault name="ComponenteException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarTipodeLogradouro">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listarTipodeLogradouro">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarTipodeLogradouroResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ComponenteException">
+        <soap:fault name="ComponenteException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDadosCep">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDadosCep">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDadosCepResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ComponenteException">
+        <soap:fault name="ComponenteException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFaixaCepUop">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getFaixaCepUop">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getFaixaCepUopResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ComponenteException">
+        <soap:fault name="ComponenteException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getListaCep">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getListaCep">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getListaCepResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ComponenteException">
+        <soap:fault name="ComponenteException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarFaixaCEPMunicipioAgendadasParaProximoMes">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listarFaixaCEPMunicipioAgendadasParaProximoMes">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarFaixaCEPMunicipioAgendadasParaProximoMesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ComponenteException">
+        <soap:fault name="ComponenteException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="cep">
+    <wsdl:port binding="tns:cepSoapBinding" name="cepServicePort">
+      <soap:address location="https://jhom2.correiosnet.int/cepWS-v2/cep/cepService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
